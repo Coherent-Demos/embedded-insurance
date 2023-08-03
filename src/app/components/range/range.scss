@@ -1,0 +1,52 @@
+input[type=range][disabled] {
+  background-image: linear-gradient(#A0A0A0, #A0A0A0);
+}
+
+input[type=range][disabled]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border: 2px solid #A0A0A0;
+  border-radius: 100%;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: #DCDCDC;
+  height: 4px;
+  background-image: linear-gradient($purple, $purple);
+  background-size: 10% 100%;
+  background-repeat: no-repeat;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border: 2px solid $purple;
+  border-radius: 100%;
+}
+
+input[type=range]::-moz-range-progress {
+  background-color: $purple;
+}
+input[type=range]::-moz-range-track {
+  background-color: #DCDCDC;
+}
+
+input[type=range]::-ms-fill-lower {
+  background-color: $purple;
+}
+input[type=range]::-ms-fill-upper {
+  background-color: #DCDCDC;
+}

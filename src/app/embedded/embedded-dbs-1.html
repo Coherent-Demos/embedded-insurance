@@ -1,0 +1,21 @@
+<div style="background: #9C43FF; height: 30vh; padding-top: 18vh;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <img class="img-responsive" src="/assets/images/coherent-logo-white.svg" style="height: 48px;" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pt64 pb64">
+  <div class="row">
+    <div class="col-sm-6" ng-repeat="tile in cont.productTiles">
+        <div class="border p16 mb16">
+          <h4 class="" ng-bind="tile.title">Loading...</h4>
+          <div class="" ng-bind="tile.desc">Loading...</div>
+          <a ng-click="cont.learnMore(tile.name)">Learn More</a>
+        </div>
+    </div>
+  </div>
+</div>

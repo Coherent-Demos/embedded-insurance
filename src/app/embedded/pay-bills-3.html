@@ -1,0 +1,67 @@
+<div class="embedded">
+  <div id="embedded-flex-outer-container" class="pt24 pb24 d-flex flex-column" style="background: black; ">
+    <div class="flex-fill"></div>
+
+    <div id="embedded-flex-inner-container" class="bg-white" style="min-height: 748px">
+
+      <section class="bg-d-purple pl24 pr24 pt56 pb16 d-flex flex-row">
+        <img ui-sref="pay-bills-2" src="assets/images/embedded-flex/arrow-icon-white.svg">
+        <div class="text-white text-center font-16 flex-fill pr24">Pay Bills</div>
+      </section>
+
+      <section class="white flex-fill">
+        <div class="container-fluid mb32">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="d-flex flex-row mt32">
+                <img src="assets/images/embedded-flex/billers/{{cont.biller.image}}" width=40>
+                <div class="flex-fill pl16">
+                  <div>{{cont.biller.name}}</div>
+                  <div class="font-12 text-copy-1">Posting Period: within 3 business days</div>
+                </div>
+              </div>
+              <div class="border border-radius-md p24 pt16 d-flex flex-row mt24">
+                <div class="font-24 text-300 text-copy-0 pt8">PHP</div>
+                <input type="text" name="bill-amount" id="bill-amount" ng-model="cont.billAmount" placeholder="Enter Amount" style="text-decoration: underline; border: none;" class="w-100 pt8 flex-fill text-right font-24 text-700 text-copy-2" ng-blur="cont.getProduct()">
+                <div class="font-24 text-300 text-copy-0 pt8" ng-if="cont.checkbox&&cont.billAmount>0">+{{cont.product.Premium * cont.billAmount / 100}}</div>
+              </div>
+              <center class="pt8 font-12 text-copy-0">You will be charged a service fee of PHP 20.00</center>
+              <div class="form-group mt32 mb48">
+                <label class="text-300 mb8 text-copy-1" for="accref">Account Reference Number</label>
+                <input type="text" id="accref" class="form-control text-300 mb8" placeholder="Enter 8-digit account number">
+                <label class="text-300 mb8 text-copy-1 pt8" for="accref">Account Reference Number</label>
+                <input type="text" id="accref" class="form-control text-300 mb8" placeholder="Enter 8-digit account number">
+              </div>
+
+              <div class="border-radius-md font-12 p16 mb16 embeddedbill {{cont.product.ProductTrim}}">
+                <div class="mt16 mb16 text-white p8 border-radius bg-black" id="activeRule" style="font-family: monospace; position: absolute; margin-top: -40px;">Active Rule: {{cont.activeRule["Rules"]}}</div>
+                <div class="d-flex flex-row pb8">
+                  <div class="flex-fill"><img src="assets/images/embedded-flex/icons/{{cont.product.Product}}.svg"></div>
+                  <div><img src="assets/images/embedded-flex/icons/close.svg" ng-click="cont.snooze()"></div>
+                </div>
+                <strong>{{cont.product.Intro}}</strong>
+                <div class="text-copy-1 text-300 pt8">Get 
+                  <span class="coloredText">{{cont.product.Cover}}</span> months of coverage, for less than 
+                  <span class="coloredText">{{cont.product.Premium}}%</span> of your bill amount! <u>Learn more</u></div>
+                <div class="checkbox m0 mt8 dynamicColor" ng-class="{ selected: cont.checkbox }" ng-click="cont.checkbox=!cont.checkbox">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" ng-model="cont.checkbox">
+                    <span class="checkmark"></span>
+                    <label class="text-copy-1 text-300 pl8" style="padding-left: 8px; font-weight: 300;">Yes, I agree to pay purchase {{cont.product.Product}} <u>View group policy</u></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="btn btn-d-purple w-100" ng-click="cont.go()">Confirm and Pay</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="flex-fill"></div>
+
+  </div>
+  
+</div>

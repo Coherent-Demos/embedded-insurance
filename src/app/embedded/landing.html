@@ -1,0 +1,249 @@
+<div class="embedded">
+  <div id="embedded-flex-outer-container" class="pt24 pb24 d-flex flex-column" style="background: black; ">
+    <div class="flex-fill"></div>
+
+    <div id="embedded-flex-inner-container">
+              
+      <section class="bg-white w-100">
+        <div class="container-fluid">
+          <div class="row pt16 pb16 pl8 pr8">
+            <div class="col-xs-12 font-21">
+              <div class="d-flex flex-row pb24">
+                <img src="assets/images/embedded-flex/notif-icon.svg">
+                <div class="dropdown mr16 flex-fill">
+                  <button style="padding: 16 0 0 0; background: transparent;" class="btn btn-secondary dropdown-toggle font-16" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hello <span ng-bind="cont.activePersona" class="text-700"></span>!  
+                  </button>
+                  <div class="dropdown-menu p16 w-100 dropdown-menu-left" aria-labelledby="dropdownMenuButton" style="width: 332px; margin-left: -24px;">
+                    <a class="w-100 dropdown-item inline-block text-copy-2" ng-repeat="persona in cont.personas" ng-click="console.log('a-clicked');cont.setPersona(persona.Persona_ID)">
+                      <div class="border border-radius-md bg-gray-1 w-100 p16 pt8 pb8 mb16">
+                        <div class="d-flex flex-row">
+                          <img src="assets/images/avatars/{{persona.Name.toLowerCase()}}.png" height="60px">
+                          <div class="flex-fill ml16">
+                            <div class="font-21 text-700" ng-bind="persona.Name"><strong>Vander</strong></div>
+                            <div class="d-flex flex-row font-12 mt8">
+                              <div>
+                                <div><span class="text-300 text-copy-1">Age: </span><span class="text-700 text-copy-2" ng-bind="persona.Prm_Age"></span></div>
+                                <div><span class="text-300 text-copy-1">Gender: </span><span class="text-700 text-copy-2" ng-bind="persona.Prm_Gender"></span></div>
+                                <div><span class="text-300 text-copy-1">M.Status: </span><span class="text-700 text-copy-2" ng-bind="persona.Prm_Marital_Status"></span></div>
+                                <div><span class="text-300 text-copy-1">Income: </span><span class="text-700 text-copy-2" ng-bind="persona.Prm_Income"></span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <img src="/assets/images/avatars/{{cont.activePersona.toLowerCase()}}.png" style="border-radius: 50%; height: 32px; width: 32px; margin-left: auto; margin-right: auto;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-white w-100" ng-if="cont.landing">
+        <div class="container-fluid">
+          <div class="row pt16 pb16 pl8 pr8">
+            <div class="col-xs-12 font-21">
+              <div class="border border-radius-md p16 d-flex flex-row">
+                <div class="flex-fill">
+                  <div class="font-14 text-copy-1 text-300">Total Balance</div>
+                  <div class="font-24 text-300 text-copy-0">$ <span class="text-700 text-copy-2" ng-bind="cont.bankBalance"></span></div>
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="flex-fill"></div>
+                  <div class="btn btn-black btn-rounded btn-sm pl16 pr16 text-100">+ Add Money</div>
+                  <div class="flex-fill"></div>
+                </div>
+              </div>
+              <div ui-sref="embedded-flex-2" ng-if="!cont.purchased" class="border-radius-md border p16 pt8 mt24 d-flex flex-fill" style="background-image: url('assets/images/embedded-flex/bg-image-gold.png'); background-size: cover;">
+                <div class="flex-fill">
+                  <strong class="uppercase font-12">Get a <span ng-bind="cont.discount"></span>% Discount</strong>
+                  <div class="font-21 text-purple"><strong>MyFlex</strong> Insurance</div>
+                  <div class="font-12">Starting at $50/month</div>
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="flex-fill"></div>
+                  <img src="assets/images/embedded-flex/arrow-right.svg">
+                  <div class="flex-fill"></div>
+                </div>
+              </div>
+              <img src="assets/images/embedded-flex/flex-card.png" class="w-100 pt24">
+              <div class="border mt24 border-radius-md p16 bg-gray-1" ng-if="cont.purchased">
+                <div><center class="text-700 font-16">MyFlex</center></div>
+                <div class="text-center mt16">
+                  <div ng-repeat="coverage in cont.modules" class="inline-block ml8 mr8" ng-if="coverage.included==true">
+                    <img src="assets/images/embedded-flex/covers/{{coverage.name}}.svg" height="56">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid pl24 pb64 " style="overflow: scroll">
+          <div class="row mb64 pr16" style="width: 600px">
+            <div class="col-xs-3 pr0">
+              <div class="border p16 border-radius d-flex flex-row">
+                <img src="assets/images/embedded-flex/transfer.svg" width="24">
+                <div class="font-14 flex-fill pl8 text-copy-2">Transfer</div>
+              </div>
+            </div>
+            <a class="col-xs-3 pr0" ui-sref="pay-bills-1">
+              <div class="border p16 border-radius d-flex flex-row">
+                <img src="assets/images/embedded-flex/bills.svg" width="24">
+                <div class="font-14 flex-fill pl8 text-copy-2">Pay Bills</div>
+              </div>
+            </a>
+            <a class="col-xs-3 pr0" ui-sref="ins-upsell-1">
+              <div class="border p16 border-radius d-flex flex-row">
+                <img src="assets/images/embedded-flex/insure.svg" width="24">
+                <div class="font-14 flex-fill pl8 text-copy-2">Insure</div>
+              </div>
+            </a>
+            <div class="col-xs-3">
+              <div class="border p16 border-radius d-flex flex-row">
+                <img src="assets/images/embedded-flex/invest.svg" width="24">
+                <div class="font-14 flex-fill pl8 text-copy-2">Invest</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-white w-100" ng-if="cont.spending">
+        <div class="container-fluid">
+          <div class="row pt16 pb16 pl8 pr8 border-bottom">
+            <div class="col-xs-12">
+              <div class="font-32 text-700">Spending</span></div>
+
+              <div class="text-center mt32">
+                <svg width='256' height='256'>
+                  <rect width='180' height='180' fill='none' rx='100' ry='100' stroke='#3ECB0C' stroke-width='40' stroke-dasharray='{{ cont.dasharray1}}' stroke-dashoffset='{{cont.offset1}}' stroke-linecap='butt' x='30' y='30'/>
+                  <rect width='180' height='180' fill='none' rx='100' ry='100' stroke='#24C4CC' stroke-width='40' stroke-dasharray='{{ cont.dasharray2}}' stroke-dashoffset='{{cont.offset2}}' stroke-linecap='butt' x='30' y='30'/>
+                  <rect width='180' height='180' fill='none' rx='100' ry='100' stroke='#9C43FF' stroke-width='40' stroke-dasharray='{{ cont.dasharray3}}' stroke-dashoffset='{{cont.offset3}}' stroke-linecap='butt' x='30' y='30'/>
+                  <rect width='180' height='180' fill='none' rx='100' ry='100' stroke='#D533A3' stroke-width='40' stroke-dasharray='{{ cont.dasharray4}}' stroke-dashoffset='{{cont.offset4}}' stroke-linecap='butt' x='30' y='30'/>
+                  <rect width='180' height='180' fill='none' rx='100' ry='100' stroke='#E87722' stroke-width='40' stroke-dasharray='{{ cont.dasharray5}}' stroke-dashoffset='{{cont.offset5}}' stroke-linecap='butt' x='30' y='30'/>
+                  <rect width='180' height='180' fill='none' rx='100' ry='100' stroke='#3B8CFF' stroke-width='40' stroke-dasharray='{{ cont.dasharray6}}' stroke-dashoffset='{{cont.offset6}}' stroke-linecap='butt' x='30' y='30'/>
+                  <rect width='180' height='180' fill='none' rx='100' ry='100' stroke='#FFDB1D' stroke-width='40' stroke-dasharray='{{ cont.dasharray7}}' stroke-dashoffset='{{cont.offset7}}' stroke-linecap='butt' x='30' y='30'/>
+                </svg>
+              </div>
+              
+
+              <div class="border-top d-flex flex-row p16 mt16">
+                <img src="assets/images/embedded-flex/shopping.svg">
+                <div class="ml16 flex-fill">
+                  <div>Shopping</div>
+                  <div class="text-300 font-12 text-copy-1"><span ng-bind="cont.txn3Count"></span> transactions</div>
+                </div> 
+                <div>
+                  <div class="text-right"><span class="text-copy-1 text-300">$</span> <span ng-bind="cont.txn3"></span></div>
+                  <div class="text-300 font-12 text-copy-1 text-right"><span ng-bind="cont.txn3Pct"></span>%</div>
+                </div>
+              </div>
+              <div class="border-top d-flex flex-row p16 mt16">
+                <img src="assets/images/embedded-flex/healthcare.svg">
+                <div class="ml16 flex-fill">
+                  <div>Healthcare</div>
+                  <div class="text-300 font-12 text-copy-1"><span ng-bind="cont.txn1Count"></span> transactions</div>
+                </div> 
+                <div>
+                  <div class="text-right"><span class="text-copy-1 text-300">$</span> <span ng-bind="cont.txn1"></span></div>
+                  <div class="text-300 font-12 text-copy-1 text-right"><span ng-bind="cont.txn1Pct"></span>%</div>
+                </div>
+              </div>
+              <div class="border-top d-flex flex-row p16 mt16">
+                <img src="assets/images/embedded-flex/child.svg">
+                <div class="ml16 flex-fill">
+                  <div>Child</div>
+                  <div class="text-300 font-12 text-copy-1"><span ng-bind="cont.txn2Count"></span> transactions</div>
+                </div> 
+                <div>
+                  <div class="text-right"><span class="text-copy-1 text-300">$</span> <span ng-bind="cont.txn2"></span></div>
+                  <div class="text-300 font-12 text-copy-1 text-right"><span ng-bind="cont.txn2Pct"></span>%</div>
+                </div>
+              </div>
+              <div class="border-top d-flex flex-row p16 mt16">
+                <img src="assets/images/embedded-flex/transport.svg">
+                <div class="ml16 flex-fill">
+                  <div>Transport</div>
+                  <div class="text-300 font-12 text-copy-1"><span ng-bind="cont.txn4Count"></span> transactions</div>
+                </div> 
+                <div>
+                  <div class="text-right"><span class="text-copy-1 text-300">$</span> <span ng-bind="cont.txn4"></span></div>
+                  <div class="text-300 font-12 text-copy-1 text-right"><span ng-bind="cont.txn4Pct"></span>%</div>
+                </div>
+              </div>
+              <div class="border-top d-flex flex-row p16 mt16">
+                <img src="assets/images/embedded-flex/rent.svg">
+                <div class="ml16 flex-fill">
+                  <div>Rent</div>
+                  <div class="text-300 font-12 text-copy-1"><span ng-bind="cont.txn5Count"></span> transactions</div>
+                </div> 
+                <div>
+                  <div class="text-right"><span class="text-copy-1 text-300">$</span> <span ng-bind="cont.txn5"></span></div>
+                  <div class="text-300 font-12 text-copy-1 text-right"><span ng-bind="cont.txn5Pct"></span>%</div>
+                </div>
+              </div>
+              <div class="border-top d-flex flex-row p16 mt16">
+                <img src="assets/images/embedded-flex/travel.svg">
+                <div class="ml16 flex-fill">
+                  <div>Travel</div>
+                  <div class="text-300 font-12 text-copy-1"><span ng-bind="cont.txn6Count"></span> transactions</div>
+                </div> 
+                <div>
+                  <div class="text-right"><span class="text-copy-1 text-300">$</span> <span ng-bind="cont.txn6"></span></div>
+                  <div class="text-300 font-12 text-copy-1 text-right"><span ng-bind="cont.txn6Pct"></span>%</div>
+                </div>
+              </div>
+              <div class="border-top d-flex flex-row p16 mt16">
+                <img src="assets/images/embedded-flex/crypto.svg">
+                <div class="ml16 flex-fill">
+                  <div>Crypto</div>
+                  <div class="text-300 font-12 text-copy-1"><span ng-bind="cont.txn7Count"></span> transactions</div>
+                </div> 
+                <div>
+                  <div class="text-right"><span class="text-copy-1 text-300">$</span> <span ng-bind="cont.txn7"></span></div>
+                  <div class="text-300 font-12 text-copy-1 text-right"><span ng-bind="cont.txn7Pct"></span>%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-white" style="padding-bottom: 120px;" ng-if="cont.spending"></section>
+    </div>
+
+    <div id="embedded-navbar-container" class="bg-white pb-24">
+      <div id="bank-nav-container" class="d-flex flex-row" ng-if="!cont.purchased">
+        <div class="flex-fill"></div>
+        <div class="bg-black bank-nav border-radius-md pl24 pr24 pt8 pb8">
+          <a><img src="assets/images/embedded-flex/home-fill.svg" height="32" ng-if="cont.landing"></a>
+          <a><img src="assets/images/embedded-flex/home.svg" height="32" ng-if="!cont.landing" ng-click="cont.clickTab('landing')"></a>
+          <a><img src="assets/images/embedded-flex/wallet.svg" height="32"></a>
+          <a><img src="assets/images/embedded-flex/spending.svg" height="32" ng-if="!cont.spending" ng-click="cont.clickTab('spending')"></a>
+          <a><img src="assets/images/embedded-flex/spending-fill.svg" height="32" ng-if="cont.spending"></a>
+        </div>
+        <div class="flex-fill"></div>
+      </div>
+      <section id="journey-nav-container" ng-if="cont.purchased">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="text-white pt16">
+                Success! MyFlex is now being activated
+              </div>
+              <div class="mt16 btn btn-ghost-white mb40 w-100" ng-click="cont.resetPurchase(1)">
+                Reset Journey
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="flex-fill"></div>
+
+  </div>
+  
+</div>

@@ -1,0 +1,46 @@
+<div class="embedded">
+  <div id="embedded-flex-outer-container" class="pt24 pb24 d-flex flex-column" style="background: black; ">
+    <div class="flex-fill"></div>
+
+    <div id="embedded-flex-inner-container" class="bg-white" style="min-height: 748px">
+
+      <section class="bg-d-purple pl24 pr24 pt56 pb16 d-flex flex-row">
+        <img ui-sref="pay-bills-1" src="assets/images/embedded-flex/arrow-icon-white.svg">
+        <div class="text-white text-center font-16 flex-fill pr24">Pay Bills</div>
+      </section>
+      <section class="bg-gray-2">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12 pt8 pb8">
+              <div class="border-radius-md border font-14 text-300 text-copy-1 p8">
+                <div class="d-flex flex-row">
+                  <img ui-sref="embedded-landing" src="assets/images/embedded-flex/icon-search.svg">
+                  <div class="flex-fill pl8">Search Billers</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="white">
+        <div class="container-fluid mb32">
+          <div class="row border-bottom pt16 pb16" ng-repeat="biller in cont.billers" ng-if="cont.billType==biller.type" ng-click="cont.payBiller(biller)">
+            <div class="col-xs-12">
+              <div class="d-flex flex-row">
+                <img src="assets/images/embedded-flex/billers/{{biller.image}}" width=24>
+                <div class="flex-fill pl8">{{biller.name}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+
+    <div class="flex-fill"></div>
+
+  </div>
+  
+</div>

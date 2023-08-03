@@ -1,0 +1,29 @@
+<nav class="navbar navbar-static-top navbar-inverse display-none">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-bar-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="main">
+        <!-- <img class="img-responsive" src="/assets/images/coherent-logo.svg" /> -->
+        <div class="text-copy-0">Coherent</div>
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="nav-bar-1">
+      <ul class="nav navbar-nav">
+        <li data-toggle="collapse" data-target="#nav-bar-1" ng-class="{active: vm.$state.includes('purchase')}"><a ui-sref="purchase-1">Personal Accident</a></li>
+        <li data-toggle="collapse" data-target="#nav-bar-1" ng-class="{active: vm.$state.includes('policy')}"><a ui-sref="policy-login">Policy Management + Claim</a></li>
+        <li data-toggle="collapse" data-target="#nav-bar-1" ng-class="{active: vm.$state.includes('policy')}"><a ui-sref="embedded-dbs-1">CMS</a></li>
+        <li data-toggle="collapse" data-target="#nav-bar-1" ng-class="{active: vm.$state.includes('policy')}"><a ui-sref="micro-5">Micro Insurance</a></li>
+        <li data-toggle="collapse" data-target="#nav-bar-1" ng-class="{active: vm.$state.includes('policy')}"><a ui-sref="reward-landing">Free Insurance</a></li>
+        <li data-toggle="collapse" data-target="#nav-bar-1" ng-class="{active: vm.$state.includes('policy')}"><a ui-sref="embedded-landing">Flex</a></li>
+        <li data-toggle="collapse" data-target="#nav-bar-1" ng-class="{active: vm.$state.includes('policy')}"><a ui-sref="embedded-flex-invest">Invest</a></li>
+        <!-- <li data-toggle="collapse" data-target="#nav-bar-1" ng-class="{active: vm.$state.includes('claim')}"><a ui-sref="claim-1">Claim Submission</a></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>

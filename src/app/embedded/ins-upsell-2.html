@@ -1,0 +1,67 @@
+<div class="embedded">
+  <div id="embedded-flex-outer-container" class="pt24 pb24 d-flex flex-column" style="background: black; ">
+    <div class="flex-fill"></div>
+
+    <div id="embedded-flex-inner-container" class="bg-white" style="min-height: 748px">
+      <section class="bg-d-purple pl24 pr24 pt56 pb16 d-flex flex-row">
+        <img ui-sref="ins-upsell-1" src="assets/images/embedded-flex/arrow-icon-white.svg">
+        <div class="text-white text-center font-16 flex-fill pr24">Travel Insurance</div>
+      </section>
+
+      <section class="bg-white">
+        <a>
+          <img src="assets/images/embedded-flex/insurance-pages/page-2.png" class="w-100">
+        </a>
+        <div class="container-fluid">
+          <div class="form-group mt16 mb48">
+            <label class="text-300 mb8" for="adults">Number of Adults</label>
+            <input type="text" id="adults" class="form-control text-300 mb8" placeholder="Enter a Number" ng-model="cont.adults">
+            <label class="text-300 mb8 pt8" for="children">Number of Children</label>
+            <input type="text" id="children" class="form-control text-300 mb8" placeholder="Enter a Number" ng-model="cont.children">
+            <label class="text-300 mb8 pt8" for="age">Age of Policy Owner</label>
+            <input type="text" id="age" class="form-control text-300 mb8" placeholder="Enter a Number (not date of birth)" ng-model="cont.age">
+            <div class="text-700 pt32">Select Add Ons</div>
+            <div class="checkbox mt24 border p8 border-radius bg-gray-2" ng-class="{ selected: cont.lifeevent }" ng-click="cont.lifeevent=!cont.lifeevent">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" ng-model="cont.lifeevent">
+                <span class="checkmark"></span>
+                <label class="text-copy-2 text-300 pl8" style="padding-left: 8px; font-weight: 300;">Life Event</label>
+              </div>
+            </div>
+            <div class="checkbox mt24 border p8 border-radius bg-gray-2" ng-class="{ selected: cont.personaleffects }" ng-click="cont.personaleffects=!cont.personaleffects">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" ng-model="cont.personaleffects">
+                <span class="checkmark"></span>
+                <label class="text-copy-2 text-300 pl8" style="padding-left: 8px; font-weight: 300;">Personal Effects</label>
+              </div>
+            </div>
+            <div class="checkbox mt24 border p8 border-radius bg-gray-2" ng-class="{ selected: cont.lifestyle }" ng-click="cont.lifestyle=!cont.lifestyle">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" ng-model="cont.lifestyle">
+                <span class="checkmark"></span>
+                <label class="text-copy-2 text-300 pl8" style="padding-left: 8px; font-weight: 300;">Lifestyle</label>
+              </div>
+            </div>
+            <div class="checkbox mt24 border p8 border-radius bg-gray-2" ng-class="{ selected: cont.valuables }" ng-click="cont.valuables=!cont.valuables">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" ng-model="cont.valuables">
+                <span class="checkmark"></span>
+                <label class="text-copy-2 text-300 pl8" style="padding-left: 8px; font-weight: 300;">Valuable Items</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="btn btn-d-purple w-100 mb32" ng-click="cont.go()">Next</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="flex-fill"></div>
+
+  </div>
+  
+</div>

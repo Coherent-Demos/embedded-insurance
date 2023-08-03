@@ -1,0 +1,56 @@
+<div class="embedded">
+  <div id="embedded-flex-outer-container" class="pt64 pb64 d-flex flex-column" style="background: black; ">
+    <div class="flex-fill"></div>
+    <div id="embedded-flex-inner-container">
+      <section class="bg-white w-100">
+        <div class="container-fluid">
+          <div class="row pt16 pb16 pl8 pr8 border-bottom">
+            <div class="col-xs-12 font-21">
+              <div class="d-flex flex-row pb24">
+                <img src="assets/images/embedded-flex/notif-icon.svg">
+                <div class="dropdown mr16 flex-fill">
+                  <button style="padding: 16 0 0 0; background: transparent;" class="btn btn-secondary dropdown-toggle font-16" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span ng-bind="cont.activePersona" class="text-700"></span>
+                  </button>
+                  <div class="dropdown-menu p16 w-100 dropdown-menu-left" aria-labelledby="dropdownMenuButton" style="width: 332px; margin-left: -24px;">
+                    <a class="w-100 dropdown-item inline-block text-copy-2" ng-repeat="persona in cont.personas" ng-click="console.log('a-clicked');cont.setPersona(persona.Persona_ID)">
+                      <div class="border border-radius-md bg-gray-1 w-100 p16 pt8 pb8 mb16">
+                        <div class="d-flex flex-row">
+                          <img src="assets/images/avatars/{{persona.Name.toLowerCase()}}.png" height="80px">
+                          <div class="flex-fill ml16">
+                            <div class="font-21" ng-bind="persona.Name"><strong>Vander</strong></div>
+                            <div class="d-flex flex-row">
+                              <div>
+                                <div><strong>Age: </strong><span ng-bind="persona.Prm_Age"></span></div>
+                                <div><strong>Gender: </strong><span ng-bind="persona.Prm_Gender"></span></div>
+                                <div><strong>M.Status: </strong><span ng-bind="persona.Prm_Marital_Status"></span></div>
+                                <div><strong>Income: </strong><span ng-bind="persona.Prm_Income"></span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <img src="/assets/images/avatars/{{cont.activePersona.toLowerCase()}}.png" style="border-radius: 50%; height: 32px; width: 32px; margin-left: auto; margin-right: auto;">
+                <!-- <a ui-sref="embedded-flex-1" class="flex-fill text-copy-2">Digibank</a> -->
+                <!-- <img src="assets/images/user-icon.svg" width="32"> -->
+              </div>
+              <div class="font-32 text-700 mt40 w-100">Activate <span class="text-purple">MyFlex</span></div>
+              <div class="font-14 text-copy-0">Simple Personalized Protection</span></div>
+              <div style="border: 4px solid #DEFA3D;" class="p24 w-100 border-radius-md mt40">
+                <div class="font-32 text-700 text-center" ng-bind="cont.totalPrice">$73.9</div>
+              </div>
+              <img src="assets/images/embedded-flex/what-you-are-getting.png" class="w-100 mt40">
+              <a ui-sref="embedded-flex-2"><img src="assets/images/embedded-flex/activate-cta.png" class="w-100 mt40"></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="flex-fill"></div>
+
+  </div>
+  
+</div>

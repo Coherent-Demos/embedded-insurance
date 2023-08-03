@@ -1,0 +1,81 @@
+<div class="embedded">
+  <div id="embedded-flex-outer-container" class="pt24 pb24 d-flex flex-column" style="background: black; ">
+    <div class="flex-fill"></div>
+
+    <div id="embedded-flex-inner-container" class="bg-white" style="min-height: 748px">
+
+      <section class="bg-d-purple pl24 pr24 pt56 pb16 d-flex flex-row">
+        <img ui-sref="embedded-landing" src="assets/images/embedded-flex/arrow-icon-white.svg">
+        <div class="text-white text-center font-16 flex-fill pr24">Pay Bills</div>
+      </section>
+      <section class="bg-gray-2">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12 pt8 pb8">
+              <div class="border-radius-md border font-14 text-300 text-copy-1 p8">
+                <div class="d-flex flex-row">
+                  <img ui-sref="embedded-landing" src="assets/images/embedded-flex/icon-search.svg">
+                  <div class="flex-fill pl8">Search Billers</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="white">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="d-flex flex-row mt16 mb32">
+                <div class="flex-fill">Categories</div>
+                <a>View All</a>
+              </div>
+              <div class="row">
+                <a class="col-xs-3 pb24" ng-click="cont.seeBillers('electric')">
+                  <img class="w-100" src="assets/images/embedded-flex/bills/electric.png">
+                  <center class="font-12 text-300 text-copy-1">Electric Utilities</center>
+                </a>
+                <a class="col-xs-3" ng-click="cont.seeBillers('water')">
+                  <img class="w-100" src="assets/images/embedded-flex/bills/water.png">
+                  <center class="font-12 text-300 text-copy-1">Water Utilities</center>
+                </a>
+                <a class="col-xs-3" ng-click="cont.seeBillers('telco')">
+                  <img class="w-100" src="assets/images/embedded-flex/bills/telco.png">
+                  <center class="font-12 text-300 text-copy-1">Telecoms</center>
+                </a>
+                <a class="col-xs-3" ng-click="cont.seeBillers('cable')">
+                  <img class="w-100" src="assets/images/embedded-flex/bills/cable.png">
+                  <center class="font-12 text-300 text-copy-1">Cable / Internet</center>
+                </a>
+              </div>
+              <div class="row">
+                <a class="col-xs-3" ng-click="cont.seeBillers('healthcare')">
+                  <img class="w-100" src="assets/images/embedded-flex/bills/healthcare.png">
+                  <center class="font-12 text-300 text-copy-1">Healthcare</center>
+                </a>
+                <a class="col-xs-3" ng-click="cont.seeBillers('transpo')">
+                  <img class="w-100" src="assets/images/embedded-flex/bills/transpo.png">
+                  <center class="font-12 text-300 text-copy-1">Transportation</center>
+                </a>
+                <a class="col-xs-3" ng-click="cont.seeBillers('creditcard')">
+                  <img class="w-100" src="assets/images/embedded-flex/bills/creditcard.png">
+                  <center class="font-12 text-300 text-copy-1">Credit Cards</center>
+                </a>
+                <a class="col-xs-3" ng-click="cont.seeBillers('other')">
+                  <img class="w-100" src="assets/images/embedded-flex/bills/other.png">
+                  <center class="font-12 text-300 text-copy-1">Other</center>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+
+    <div class="flex-fill"></div>
+
+  </div>
+  
+</div>

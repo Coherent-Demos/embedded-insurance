@@ -1,0 +1,79 @@
+<div class="embedded">
+  <div id="embedded-flex-outer-container" class="pt24 pb24 d-flex flex-column" style="background: black; ">
+    <div class="flex-fill"></div>
+
+    <div id="embedded-flex-inner-container" class="bg-white">
+      <section>
+        <div class="container-fluid">
+          <div class="row pt16">
+            <div class="col-xs-12">
+              <div class="d-flex flex-row pb24">
+                <div class="flex-fill"></div>
+                <img ui-sref="embedded-landing" src="assets/images/embedded-flex/close-icon.svg">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="font-32 text-700">Activate <span class="text-purple">MyFlex</span></div>
+              <div class="font-14 text-300 text-copy-1">Customise your recommended plans</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="border border-radius-md p16 p8 mt16" ng-repeat="plan in cont.recommendedPlans">
+                <div class="checkbox mt0 mb24" ng-class="{ selected: cont.checkbox[plan.ID] }" ng-click="cont.checkbox[plan.ID] = !cont.checkbox[plan.ID];cont.customize()">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" ng-model="cont.checkbox[plan.ID]">
+                    <span class="checkmark"></span>
+                    <label class="form-check-label" ng-bind="plan.name"></label>
+                  </div>
+                </div>
+                <div>
+                  <range model="cont.slider[plan.ID].convertedcover"
+                         min="cont.slider[plan.ID].convertedmin"
+                         max="cont.slider[plan.ID].convertedmax" 
+                         disabled="!cont.checkbox[plan.ID]"
+                         change="cont.customize()"></range>
+                  <div class="d-flex flex-row mt16 font-14">
+                    <label for="" class="flex-fill">
+                      <span class="text-300 text-copy-1">Cover: </span> 
+                      <span class="text-700 text-copy-2" ng-bind="cont.slider[plan.ID].cover"></span>
+                    </label>
+                    <div>
+                      <span class="text-300 text-copy-1">Premium: </span> 
+                      <span class="text-700 text-copy-2" ng-class="{ strike: !cont.checkbox[plan.ID] }" ng-bind="plan.premium"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section style="padding-bottom: 224px;"></section>
+    </div>
+
+    <div id="embedded-navbar-container" class="bg-white pb-24 bg-white">
+      <div class="container-fluid" id="productflow-nav-container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="font-14 text-copy-1 text-300">Total Premium</div>
+            <div class="font-32 text-copy-1 text-300 mb8">$ <span class="text-copy-2 text-700"ng-bind="cont.totalPrice" id="totprice-animate"></span></div>
+            <div class="mb24 font-14 text-300 text-copy-1">(Bundle Discount <span id="discount-animate" ng-bind="cont.discount"></span>%) <strike>$ <span ng-bind="cont.oldprice"></span></strike></div>
+            <div></div>
+            <a class="btn btn-black w-100 pt8 pb8" ui-sref="embedded-flex-3">Next: Declaration</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-fill"></div>
+
+  </div>
+</div>

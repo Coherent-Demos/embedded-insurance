@@ -1,0 +1,41 @@
+.back-navbar {
+	height: 96px;
+	background: #9C43FF;
+	width: 100%;
+	display: block;
+
+	font-family: GT Walsheim;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 21px;
+	line-height: 28px;
+
+	color: #FFFFFF;
+
+	padding-top: 55px;
+	padding-bottom: 17px;
+
+	a, a:visited, a:hover, a:link {
+		color: #FFFFFF;
+	}
+
+	img {
+		display: inline-block;
+	}
+
+	.content {
+		margin-left: 24px;
+	}
+
+	.glyphicon {
+		top: 3px;
+	}
+
+	&.with-bottom-margin {
+		margin-bottom: 40px;
+	}
+
+	&.green {
+		background: #1B974D;
+	}
+}

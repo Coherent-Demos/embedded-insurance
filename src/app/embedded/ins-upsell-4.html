@@ -1,0 +1,97 @@
+<div class="embedded">
+  <div id="embedded-flex-outer-container" class="pt24 pb24 d-flex flex-column" style="background: black; ">
+    <div class="flex-fill"></div>
+
+    <div id="embedded-flex-inner-container" class="bg-white" style="min-height: 748px">
+      <section class="bg-d-purple pl24 pr24 pt56 pb16 d-flex flex-row">
+        <img ui-sref="ins-upsell-3" src="assets/images/embedded-flex/arrow-icon-white.svg">
+        <div class="text-white text-center font-16 flex-fill pr24">Success</div>
+      </section>
+
+      <section class="bg-gray-2">
+        <a ui-sref="embedded-landing">
+          <img src="assets/images/embedded-flex/insurance-pages/page-4.png" class="w-100">
+        </a>
+      </section>
+
+      <section style="background-color: #EBE3FF; margin-top: -24px">
+        <div class="container-fluid">
+          <div class="form-group mb32">
+            <center class="font-14 text-300 text-copy-1"><strong class="font-16 text-copy-2">Craft Your Perfect Coverage</strong><br>Unlock More Discounts as Your Protection Expands</center>
+            <div class="checkbox mt24 box-shadow border-radius overflow-hidden bg-white" ng-if="cont['Family PA']" ng-class="{ selected: cont.familypa }" ng-click="cont.familypa=!cont.familypa; cont.updatePrice('familypa', 0)">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" ng-model="cont.familypa">
+                <span class="checkmark mt16 ml16"></span>
+                <div class="d-flex flex-row">
+                  <div class="flex-fill p16">
+                    <label class="text-copy-2 flex-fill text-300" style="padding-left: 8px; font-weight: 300;">Family PA</label>
+                    <div class="pl8 text-300 font-12 text-copy-0">{{cont.data.ProductDetails["0"].Description}}</div>
+                    <div class="pl8 mt16 text-copy-2 text-700">{{cont.data.ProductDetails["0"].Premium}}<span class="text-300 text-copy-0"> PHP</span></div>
+                  </div>
+                  <div style="width: 80px; background-size: cover; background-image: url('assets/images/embedded-flex/insurance-pages/Family PA.png')"></div>
+                </div>
+              </div>
+            </div>
+            <div class="checkbox mt24 box-shadow border-radius overflow-hidden bg-white" ng-if="cont['Cyber Cover']" ng-class="{ selected: cont.cybercover }" ng-click="cont.cybercover=!cont.cybercover; cont.updatePrice('cybercover', 1)">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" ng-model="cont.cybercover">
+                <span class="checkmark mt16 ml16"></span>
+                <div class="d-flex flex-row">
+                  <div class="flex-fill p16">
+                    <label class="text-copy-2 flex-fill text-300" style="padding-left: 8px; font-weight: 300;">Cyber Cover</label>
+                    <div class="pl8 text-300 font-12 text-copy-0">{{cont.data.ProductDetails["1"].Description}}</div>
+                    <div class="pl8 mt16 text-copy-2 text-700">{{cont.data.ProductDetails["1"].Premium}}<span class="text-300 text-copy-0"> PHP</span></div>
+                  </div>
+                  <div style="width: 80px; background-size: cover; background-image: url('assets/images/embedded-flex/insurance-pages/Cyber Cover.png')"></div>
+                </div>
+              </div>
+            </div>
+            <div class="checkbox mt24 box-shadow border-radius overflow-hidden bg-white" ng-if="cont['Valuables']" ng-class="{ selected: cont.valuables }" ng-click="cont.valuables=!cont.valuables; cont.updatePrice('valuables', 2)">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" ng-model="cont.valuables">
+                <span class="checkmark mt16 ml16"></span>
+                <div class="d-flex flex-row">
+                  <div class="flex-fill p16">
+                    <label class="text-copy-2 flex-fill text-300" style="padding-left: 8px; font-weight: 300;">Valuables+</label>
+                    <div class="pl8 text-300 font-12 text-copy-0">{{cont.data.ProductDetails["2"].Description}}</div>
+                    <div class="pl8 mt16 text-copy-2 text-700">{{cont.data.ProductDetails["2"].Premium}}<span class="text-300 text-copy-0"> PHP</span></div>
+                  </div>
+                  <div style="width: 80px; background-size: cover; background-image: url('assets/images/embedded-flex/insurance-pages/Valuables.png')"></div>
+                </div>
+              </div>
+            </div>
+            <div class="checkbox mt24 box-shadow border-radius overflow-hidden bg-white" ng-if="cont['Mobile Guard']" ng-class="{ selected: cont.mobileguard }" ng-click="cont.mobileguard=!cont.mobileguard; cont.updatePrice('mobileguard', 3)">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" ng-model="cont.mobileguard">
+                <span class="checkmark mt16 ml16"></span>
+                <div class="d-flex flex-row">
+                  <div class="flex-fill p16">
+                    <label class="text-copy-2 flex-fill text-300" style="padding-left: 8px; font-weight: 300;">Mobile Guard</label>
+                    <div class="pl8 text-300 font-12 text-copy-0">{{cont.data.ProductDetails["3"].Description}}</div>
+                    <div class="pl8 mt16 text-copy-2 text-700">{{cont.data.ProductDetails["3"].Premium}}<span class="text-300 text-copy-0"> PHP</span></div>
+                  </div>
+                  <div style="width: 80px; background-size: cover; background-image: url('assets/images/embedded-flex/insurance-pages/Mobile Guard.png')"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="mb16 p16 border-radius" style="background-color: #DED0FF; border: 2px solid #3800D8">
+                <div class="font-14 text-700">Total Price PHP {{cont.totalPrice}}</div>
+                <div class="font-14 text-copy-1 text-300">(Bundle Discount {{cont.effectiveDiscount * 100}}%) <strike> {{cont.totalPrice}}</strike></div>
+              </div>
+              <div class="btn btn-d-purple w-100 mb8" ng-click="cont.go()">Get More Protection</div>
+              <div class="mb32 text-copy-1 text-300 text-center">Skip Limited Offer</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="flex-fill"></div>
+
+  </div>
+  
+</div>

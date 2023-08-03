@@ -1,0 +1,7 @@
+<div class="container back-navbar" ng-class="{'with-bottom-margin': !vm.removeMargin}">
+	<a href="#" ng-click="vm.back()">
+		<span class="glyphicon {{ vm.icon }}" ng-class="{ 'glyphicon-menu-left': !vm.icon }"></span>
+		<img ng-if="!vm.content" class="img-responsive m0" src="/assets/images/coherent-logo-white.svg" />
+	</a>
+	<span class="content" ng-if="vm.content" ng-bind="vm.content"></span>
+</div>
