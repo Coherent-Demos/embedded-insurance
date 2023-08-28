@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('coherentPaDemo')
+    .module('CoherentDemos')
     .constant('malarkey', malarkey)
     .constant('moment', moment)
     .constant('environment', 'eks')

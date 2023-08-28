@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  angular.module('coherentPaDemo').controller('InsUpsell5Controller', InsUpsell5Controller);
+  angular.module('CoherentDemos').controller('InsUpsell5Controller', InsUpsell5Controller);
   /** @ngInject */
 
   function InsUpsell5Controller($state, EmbeddedService, $http) {

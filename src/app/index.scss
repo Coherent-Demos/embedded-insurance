@@ -11,6 +11,9 @@ $d-purple: #5000D3;
 $l-purple: #EFE5FF;
 $red: #9C43FF;
 $teal: #009999;
+$n-purple: #611DEE;
+$n-dpurple: #4800AD;
+$n-pink: #FF227F;
 
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
@@ -182,12 +185,45 @@ body > .container {
 }
 
 @font-face {
-  font-family: Noto Sans;
-  src: url('/assets/fonts/NotoSansJP-Thin.otf');
+  font-family: Manrope;
+  src: url('/assets/fonts/Manrope-ExtraBold.ttf');
+  font-style: normal;
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: Manrope;
+  src: url('/assets/fonts/Manrope-Bold.ttf');
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Manrope;
+  src: url('/assets/fonts/Manrope-Medium.ttf');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Manrope;
+  src: url('/assets/fonts/Manrope-Regular.ttf');
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Manrope;
+  src: url('/assets/fonts/Manrope-Light.ttf');
+  font-style: normal;
+  font-weight: 200;
+}
+@font-face {
+  font-family: Manrope;
+  src: url('/assets/fonts/Manrope-ExtraLight.ttf');
   font-style: normal;
   font-weight: 100;
 }
-
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
@@ -197,7 +233,7 @@ body > .container {
 // endinjector
 
 html, body, section, div, h1, h2, h3, h4, h5, a, p {
-  font-family: 'GT Walsheim';
+  font-family: 'Manrope';
 }
 
 .font-12 {
@@ -312,6 +348,16 @@ html, body, section, div, h1, h2, h3, h4, h5, a, p {
   font-weight: 300;
 }
 
+.text-100 {
+  font-weight: 100;
+}
+.text-200 {
+  font-weight: 200;
+}
+
+.text-500 {
+  font-weight: 500;
+}
 .text-700 {
   font-weight: 700;
 }
@@ -326,6 +372,16 @@ html, body, section, div, h1, h2, h3, h4, h5, a, p {
 
 .text-space-wide {
   letter-spacing: 1.5;
+}
+
+.link-white {
+  color: white;
+  text-decoration: underline;
+
+  &:hover {
+    color: rgba(255,255,255,0.5);
+    text-decoration: underline;
+  }
 }
 
 .uppercase {
@@ -746,6 +802,14 @@ h3 {
   background-color: $purple;
 }
 
+.bg-n-purple {
+  background-color: $n-purple;
+}
+
+.bg-n-dpurple {
+  background-color: $n-dpurple;
+}
+
 .bg-l-purple {
   background-color: $l-purple;
 }
@@ -805,6 +869,9 @@ h3 {
 }
 .opacity-0 {
   opacity: 0;
+}
+.opacity-50 {
+  opacity: .50;
 }
 
 .position-fixed {
@@ -946,6 +1013,53 @@ h3 {
   display: inherit;
 }
 
+.card-float {
+  cursor: pointer;
+  box-shadow: none;
+  transform: translatey(0px);
+  transition: all 0.2s linear;
+  &:hover {
+    box-shadow: 0 0 64px -16px rgba(0, 0, 0, 0.6);
+    transform: translatey(-10px);
+  }
+  &:active {
+    box-shadow: none;
+    transform: translatey(0px);
+  }
+}
+
+.card-label {
+  color: white;
+  background: #7581BD;
+  font-size: 12px;
+  padding: 0px 8px;
+  border-radius: 2px;
+  font-weight: 700;
+  line-height: 24px;
+  vertical-align: middle;
+
+  &.label-purple {
+    background-color: $n-purple;
+    color: white;
+  }
+  &.label-dpurple {
+    background-color: #52B788;
+    color: white;
+  }
+  &.label-pink {
+    background-color: $n-pink;
+    color: white;
+  }
+  &.label-teal {
+    background-color: #4BB3FD;
+    color: white;
+  }
+  &.label-moss {
+    background-color: #F3C677;
+    color: white;
+  }
+}
+
 @mixin customColor($className, $colorHex, $bgHex) {
   .embeddedbill.#{$className} {
     background-color: $bgHex;
@@ -964,10 +1078,47 @@ h3 {
   }
 }
 
-@include customColor('ginsure-bill-protect', $d-purple, $l-purple);
-@include customColor('ginsure-travel',#0036C2, #DDE6FD);
-@include customColor('ginsure-cyber', #00B393, #DCEBE9);
-@include customColor('ginsure-home', #C52F00, #FFECE5);
+#catalog-search {
+  border: none;
+};
+
+.material-card {
+  overflow: hidden;
+  transition: all 0.2s linear;
+
+  .material-card-arrow {
+    cursor: pointer;
+    opacity: 0.3;
+    transition: all 0.2s linear;
+  };
+
+  &:hover {
+    .material-card-arrow {
+      opacity: 1;
+    };
+  };
+
+  &.bundle-first {
+    margin-bottom: 0;
+
+    .material-card-content {
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+    }
+  }
+
+  &.bundle-last {
+    .material-card-content {
+      border-radius: 0 0 8px 8px;
+    }
+
+  }
+};
+
+@include customColor('bill-protect', $d-purple, $l-purple);
+@include customColor('travel',#0036C2, #DDE6FD);
+@include customColor('cyber', #00B393, #DCEBE9);
+@include customColor('home', #C52F00, #FFECE5);
 
 
 // .embeddedbill.ginsure-home {

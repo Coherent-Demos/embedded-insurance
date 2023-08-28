@@ -1,0 +1,126 @@
+<section id="navbar" class="bg-white">
+  <div class="container pt24 pb24">
+    <div class="row">
+      <div class="col-12">
+        <img src="assets/images/coherent-logo-new.svg" style="height: 32px;">
+      </div>
+    </div>
+  </div>
+</section >
+<section class="bg-n-purple" style="margin-bottom: -88px;">
+  <div class="container pt64">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-white text-200">Demo Library</div>
+        <div class="text-white text-200 font-48 pt16 pb64">What demo do you need?</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 mb16">
+        <div class="bg-white p24 card-float" ng-click="cont.scrollTo('tile-selector');cont.tileMenu('Core Solutions');cont.clearSearch()">
+          <div class="text-700 font-16">Core Solutions</div>
+          <center>
+            <img src="assets/images/coherent-graphic-1.svg" class="mt48 mb40">
+          </center>
+        </div>        
+      </div>
+      <div class="col-lg-4 mb16">
+        <div class="bg-white p24 card-float" ng-click="cont.scrollTo('tile-selector');cont.tileMenu('Features');cont.clearSearch()">
+          <div class="text-700 font-16">Features</div>
+          <center>
+            <img src="assets/images/coherent-graphic-2.svg" class="mt48 mb40">
+          </center>
+        </div>        
+      </div>
+      <div class="col-lg-4 mb16">
+        <div class="bg-white p24 card-float" ng-click="cont.scrollTo('materials-list');cont.tileMenu('Core Solutions');cont.clearSearch()">
+          <div class="text-700 font-16">Browse All Materials</div>
+          <center>
+            <img src="assets/images/coherent-graphic-3.svg" class="mt48 mb40">
+          </center>
+        </div>        
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bg-n-dpurple" style="padding-top: 88px;">
+  <div class="container pt40 pb40">
+    <div class="row">
+      <div class="col-12">
+        <center><a class="link-white text-300 opacity-50" href="">I need a run through (contact mark.banaria@coherent.global)</a></center>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bg-white" id="tile-selector">
+  <div class="container pt56">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-200 text-copy-0 font-24 border-bottom pb16">
+          <span ng-class="{'text-copy-2': cont.isCoreSolutions}" ng-click="cont.tileMenu('Core Solutions');cont.clearSearch()">Core Solutions </span>
+          <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+          <span ng-class="{'text-copy-2': cont.isFeatures}" ng-click="cont.tileMenu('Features');cont.clearSearch()">Features</span>
+        </div>
+      </div>
+    </div>
+    <div class="row mt40">
+      <div class="col-lg-3 col-md-6 mb24" ng-repeat="item in cont.tileList">
+        <div class="border pt64 pb64 flex-column" ng-click="cont.quickFilter(item)">
+          <center class="text-700 font-21" ng-bind="item.name"></center>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bg-white" id="materials-list">
+  <div class="container pt56" style="min-height:70vh">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex flex-row border-bottom">
+          <div ng-if="cont.isFeatures" class="text-200 font-24 text-copy-0">Features: </div>
+          <input class="flex-fill text-200 font-24 border-bottom pb16 w-100" id="catalog-search" placeholder="All Materials (Type to search)" ng-model="cont.searchTerm" onclick="this.select()">
+          <img src="assets/images/search-icon.svg" ng-if="!cont.searchTerm">
+          <img src="assets/images/close-icon.svg" ng-if="cont.searchTerm" ng-click="cont.clearSearch()">
+        </div>
+      </div>
+    </div>
+    <div class="row mt40">
+      <div 
+        class="col-12 mb16 material-card" 
+        ng-repeat="item in cont.filteredData | filter: cont.searchFilter"
+        ng-class="{
+          'bundle-first': item['orderInGroup']=='first',
+          'bundle-last': item['orderInGroup']=='last'
+        }"
+      >
+        <div class="bg-gray-1 border border-radius-md p16 font-16 text-300 d-flex flex-row material-card-content">
+          <div class="flex-fill">
+            <span ng-if="cont.isCoreSolutions" ng-bind="item['Topic Group'] + '  /  '" class="text-300 text-copy-0"></span>
+            <span ng-bind="item['Resource Name']" class="text-700"></span>
+            <div ng-if="cont.isFeatures&&item['Features']" ng-bind="cont.formatFeatures(item['Features'])" class="text-300 text-copy-0"></div>
+          </div> 
+          <div>
+            <div ng-class="{
+              'label-purple': cont.isImportant(item['Resource Type']),
+              'label-pink': cont.isZnglist(item['Resource Type']),
+              'label-dpurple': cont.isModel(item['Resource Type']),
+              'label-teal': cont.isPPT(item['Resource Type']),
+              'label-moss': cont.isGong(item['Resource Type'])
+            }" class="card-label" ng-if="item['Resource Type']" ng-bind="item['Resource Type']">
+            </div>
+          </div>
+          <a class="pl24 material-card-arrow" href="{{item['Internal Sharepoint']}}" target="_blank">
+            <img src="assets/images/icon-arrow-right.svg">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="pb64">
+</section>
+
+<!-- <input type="text" ng-model="cont.searchText" placeholder="Search...">
+<ul>
+  <li ng-repeat="item in cont.items | filter: cont.customFilter">{{ item.name }} - {{ item.description }}</li>
+</ul> -->

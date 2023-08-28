@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('coherentPaDemo')
+    .module('CoherentDemos')
     .service('EmbeddedService', EmbeddedService);
 
   /** @ngInject */

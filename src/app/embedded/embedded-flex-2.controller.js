@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('coherentPaDemo').controller('EmbeddedFlex2Controller', EmbeddedFlex2Controller);
+  angular.module('CoherentDemos').controller('EmbeddedFlex2Controller', EmbeddedFlex2Controller);
   /** @ngInject */
 
   function EmbeddedFlex2Controller($state, EmbeddedService, $http) {

@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  angular.module('coherentPaDemo').controller('PayBills3Controller', PayBills3Controller);
+  angular.module('CoherentDemos').controller('PayBills3Controller', PayBills3Controller);
   /** @ngInject */
 
   function PayBills3Controller($state, EmbeddedService, $http) {

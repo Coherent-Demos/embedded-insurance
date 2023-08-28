@@ -12,7 +12,7 @@
     var vm;
     var el;
 
-    beforeEach(module('coherentPaDemo'));
+    beforeEach(module('CoherentDemos'));
     beforeEach(inject(function($compile, $rootScope, githubContributor, $q, _$log_) {
       $log = _$log_;
 
