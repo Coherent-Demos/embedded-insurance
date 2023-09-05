@@ -36,6 +36,10 @@
         "key": "angular-resource",
         "module": "ngResource"
       },
+      "ga": {
+        "key": "angular-google-analytics",
+        "module": "ngGoogleAnalytics"
+      },
       "router": {
         "key": "ui-router",
         "module": "ui.router"

@@ -77,7 +77,20 @@
         return true; // No search term provided, show all items
       }
 
-      var searchTerms = vm.searchTerm.toLowerCase().split(' ');
+      var searchTerm = vm.searchTerm.toLowerCase();
+      var searchTerms = [];
+      var regex = /[^\s"]+|"([^"]*)"/gi;
+
+      var match;
+      while ((match = regex.exec(searchTerm)) !== null) {
+        // Add non-empty matches or content inside double quotes to the search terms array
+        if (match[1] !== undefined) {
+          searchTerms.push(match[1]);
+        } else if (match[0].trim() !== "") {
+          searchTerms.push(match[0]);
+        }
+      }
+
       if (item['Resource Name']) {
         var itemName = item['Resource Name'].toLowerCase();
       } else {
@@ -176,6 +189,7 @@
     //   });
 
     function getCatalog(inputdata) {
+      vm.isLoading = true 
       var req = {
         method: 'POST',
         url: 'https://excel.uat.us.coherent.global/coherent/api/v3/folders/Spark FE Demos/services/demo-catalog/Execute',
@@ -186,14 +200,17 @@
         data: inputdata
       };
       $http(req).then(function (response) {
+        vm.isLoading = false
         vm.originalData = vm.prioritizeList(response.data.response_data.outputs.catalog);
         vm.filteredData = vm.originalData;
         if($stateParams.urlSearchTerm) {
           vm.searchTerm = $stateParams.urlSearchTerm;
-          vm.scrollTo('materials-list');
           if($state.current.name=='catalog-search-features') {
             vm.tileMenu('Features')  
           }
+          setTimeout(function() {
+            vm.scrollTo('materials-list');
+          }, 1);
         }
       }, function () {});
     }
